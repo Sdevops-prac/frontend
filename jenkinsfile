@@ -1,7 +1,7 @@
 pipeline{
     agent {
         node {
-            label 'workstation'  # providing agent node name as workstation so in jenkins the job runs in workstation.
+            label 'workstation'
             }
            }
     stages {
