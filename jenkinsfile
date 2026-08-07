@@ -1,14 +1,18 @@
 pipeline{
-    agent any
+    agent {
+        node {
+            label 'workstation'  # providing agent node name as workstation so in jenkins the job runs in workstation.
+            }
+           }
     stages {
-        stage ('Stage 1') {
+        stage ('Docker Build') {
             steps {
-            echo "hello world"
+            sh 'docker build -t thanukus3/r-frontend .'
             }
         }
-       stage ('Stage 2') {
+       stage ('Docker Push') {
              steps {
-                sh 'echo hello world'
+                sh 'docker push thanukus3/r-frontend'
              }
         }
    }
