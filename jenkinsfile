@@ -5,6 +5,18 @@ pipeline{
             }
            }
     stages {
+
+        stage('Debug') {
+            steps {
+                sh '''
+                    echo "USER=$(whoami)"
+                    id
+                    groups
+                    docker ps
+                '''
+            }
+        }
+
         stage ('Docker Build') {
             steps {
             sh 'docker build -t thanukus3/r-frontend .'
